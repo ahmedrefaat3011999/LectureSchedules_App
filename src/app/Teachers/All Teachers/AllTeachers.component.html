@@ -1,0 +1,56 @@
+<div class="row mt-3">
+  <h2 class="text-center col-12">All Teachers</h2>
+    <div class="col-12">
+      <div class="table-responsive align-middle">
+
+        <table class=" table table-striped ">
+            <thead>
+              <tr class="align-middle text-center">
+                <th scope="col"> No</th>
+                <th scope="col"> Name</th>
+                <th scope="col">email</th>
+                <th scope="col">phone</th>
+                <th scope="col">country</th>
+                <th scope="col">password</th>
+                <th scope="col">numberoflecture</th>
+                <th scope="col">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of teachers; let i=index" class="text-center">
+                <td>{{i+1}}</td>
+                <td> {{teachers[i].name}}</td>
+                <td> {{teachers[i].email}}</td>
+                <td> {{teachers[i].phone}}</td>
+                <td> {{teachers[i].country}}</td>
+                <td> {{teachers[i].password}}</td>
+                <td> {{teachers[i].numberoflecture}}</td> 
+                <td>
+                  <button class="btn btn-light ms-2">
+                    <i
+                      style="cursor: pointer"
+                      class="bi fs-4 fa fa-solid fa-pencil"
+                    ></i>
+                  </button>
+                  <button class="btn btn-light ms-2" (click)="deleteTeachers(teachers[i].id)">
+                    <i
+                      style="cursor: pointer"
+                      class="bi fs-4 fa bx bx-trash me-0 text-center align-midle"
+                    ></i>
+                  </button>
+                </td>
+                
+              </tr>
+            </tbody>
+          </table>
+      </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+

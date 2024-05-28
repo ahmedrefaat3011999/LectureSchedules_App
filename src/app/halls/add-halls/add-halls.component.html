@@ -1,0 +1,9 @@
+<form action="" [formGroup]="formHalls" >
+    <div>
+        <label for="halls"> hall</label>
+    <input type="text" placeholder="Halls" id="halls" class="form-control" formControlName="hallname">
+    </div>
+    <div>
+        <button (click)="addHalls()" class="btn btn-light" type="submit"> Add</button>
+    </div>
+</form>

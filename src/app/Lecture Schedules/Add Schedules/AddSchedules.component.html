@@ -1,0 +1,63 @@
+<h2 class="text-center col-12">Add Lecture Schedules</h2>
+
+<div class="my-4">
+  <div class="w-50 mx-auto">
+    <div class="input-group-prepend">
+      <select class="form-select" aria-label="Default select example" [(ngModel)]="selectedSemester">
+        <option *ngFor="let item of semester; let i = index" [value]="item.semestername">
+          {{ item.semestername }}
+        </option>
+      </select>
+    </div>
+  </div>
+  <div class="w-50 mx-auto">
+    <select class="form-select" aria-label="Default select example" [(ngModel)]="selectedLevel">
+      <option *ngFor="let item of levels; let i = index" [value]="item.year">
+        Level {{ item.year }}
+      </option>
+    </select>
+  </div>
+</div>
+
+<div class="row">
+  <div class="table-responsive align-middle col-lg-12">
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th scope="col">Time</th>
+          <th *ngFor="let item of Days; let i = index" scope="col">
+            {{ item }}
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <ng-container *ngFor="let row of lectureSchedules; let rowIndex = index">
+          <tr>
+            <th scope="row" style="width: 10%">
+              from
+              <input type="number"
+                class="form-control"
+                [ngModel]="lectureSchedules[rowIndex][0]?.clockFrom"
+                (ngModelChange)="updateClockValue($event, rowIndex, 0, 'clockFrom')"
+              />
+            
+              <input class="form-control"
+                type="number"
+                [ngModel]="lectureSchedules[rowIndex][0]?.clockTo"
+                (ngModelChange)="updateClockValue($event, rowIndex, 0, 'clockTo')"
+              />
+            </th>
+            <td *ngFor="let item of Days; let i = index" (click)="openDialog(rowIndex, i)">
+              {{ lectureSchedules[rowIndex][i]?.teacher }} <br />
+              {{ lectureSchedules[rowIndex][i]?.hall }} <br />
+              {{ lectureSchedules[rowIndex][i]?.subject }}
+            </td>
+          </tr>
+        </ng-container>
+      </tbody>
+    </table>
+    <button class="btn btn-success" (click)="addRow()">Add Row</button>
+    <button class="btn btn-danger" (click)="deleteRow()">Delete Row</button>
+    <button type="submit" class="btn btn-light" (click)="AddLecturesToTables()">Save</button>
+  </div>
+</div>

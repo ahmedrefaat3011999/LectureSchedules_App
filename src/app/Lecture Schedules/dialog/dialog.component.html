@@ -1,0 +1,35 @@
+<div class="dialog-wrapper ">
+  <div class="dialog-content">
+      <!-- <div class="card teachers-card col-xl-6 w-100">
+        <h4 class="py-3">Semesters Name</h4>
+        <select class="form-control text-dark " >
+          <option *ngFor="let item of semester" [value]="item.semestername">{{ item.semestername }}</option>
+        </select>
+      </div> -->
+      <div class="card teachers-card col-xl-6 w-100">
+        <h4 class="py-3">Teacher's Name</h4>
+        <select class="form-control text-dark " [(ngModel)]="selectedTeacher">
+          <option *ngFor="let teacher of teachers" [value]="teacher.name">Dr/{{ teacher.name }}</option>
+        </select>
+      </div>
+  
+      <div class="card halls-card col-xl-6 w-100">
+        <h4 class="py-3">Halls</h4>
+        <select class="form-control text-dark " [(ngModel)]="selectedHall">
+          <option *ngFor="let hall of halls" [value]="hall.name">{{ hall.name }}</option>
+        </select>
+      </div>
+  
+      <div class="card subjects-card col-xl-6 w-100">
+        <h4 class="py-3">Subjects</h4>
+        <select class="form-control text-dark" [(ngModel)]="selectedSubject">
+          <option *ngFor="let subject of subjects" [value]="subject.subjectname">{{ subject.subjectname }}</option>
+        </select>
+      </div>
+  
+      <div class="button-container">
+        <button class="btn btn-secondary" (click)="closeDialog()">Close</button>
+        <button class="btn btn-primary" (click)="saveData()">Save</button>
+      </div>
+    </div>
+  </div>
